@@ -1,0 +1,67 @@
+<section class="container books-section">
+    <div class="row justify-content-md-center">
+        <div class="col col-sm-8 col-md-6 col-lg-4 col-xl-4">
+            <h2 class="books-main-title" [textContent]="title"></h2>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="books.length > 0">
+        <div class="col col-sm-8 col-md-6 col-lg-4 col-xl-4">
+            <input type="text" class="form-control" [(ngModel)]="searchText" (keyup)="onSearch()" placeholder="Search Books by Title / Synopsis"/>
+        </div>
+        <div class="col col-sm-4 col-md-6 offset-lg-4 offset-xl-4 col-lg-4 col-xl-4">
+            <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="books.length === 0">
+        <div class="col col-sm-8 col-md-6 col-lg-4 col-xl-4">
+            <p>Loading books data ....</p>
+        </div>
+    </div>
+
+    <ng-container *ngFor="let book of books | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }; let i = index">
+        <div class="row book-row" [ngClass]="{'even-row': (i%2 === 0), 'odd-row': (i%2 === 1)}">
+            <div class="col-8 book-text-col">
+                <div class="row">
+                    <div class="col">
+                        <a class="book-title" [routerLink]="[book.derivedUrl]">
+                            <h3>
+                                <span class="derived-title" [textContent]="book.derivedTitle"></span>
+                                <span class="derived-rating" [textContent]="book.derivedRating"></span>
+                            </h3>
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p class="book-author" [textContent]="book.author"></p>
+                    </div>
+                </div> 
+                <div class="row">
+                    <div class="col">
+                        <p [textContent]="book.derivedSynopsis"></p>
+                    </div>
+                </div>
+                <div class="row upvote-row">
+                    <div class="col-6 col-sm-2">
+                        <button type="button" class="btn btn-warning btn-upvote">Upvote</button>
+                    </div>
+                    <div class="col-6 col-sm-3">
+                        <p class="upvoted-times" [textContent]="'Upvoted ' + book.upvotes + ' times'"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="row">
+                    <div class="col">
+                        <a [routerLink]="[book.derivedUrl]">
+                            <img class="img-fluid book-image" [src]="book.cover" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+
+</section>

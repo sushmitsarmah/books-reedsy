@@ -1,0 +1,60 @@
+@import '../../../variables';
+
+.books-main-title {
+    color: $title-color;
+}
+
+.books-section {
+    -webkit-box-shadow: 0px 0px 10px 1px $main-container-shadow;
+    -moz-box-shadow: 0px 0px 10px 1px $main-container-shadow;
+    box-shadow: 0px 0px 10px 1px $main-container-shadow;
+    padding-top: 15px;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.btn-upvote {
+    background-color: $title-color;
+    border-color: darken($title-color, 10%);
+    color: #fff;
+    &:hover {
+        background-color: darken($title-color, 10%);
+    }
+}
+
+.upvoted-times {
+    margin-top: 5px;
+}
+
+.even-row {
+    background-color: $section-background;
+}
+
+.odd-row {
+    background-color: #fff;
+}
+
+.book-row {
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    .upvote-row {
+        margin-top: 5em;
+    }
+
+    .book-title {
+        color: $book-title;
+        .derived-rating {
+            margin-left: 10px;
+            color: $text-color;
+        }
+    }
+    .book-author {
+        font-style: italic;
+    }
+    .book-image {
+        width: 50%;
+        border-radius: 10px;
+    }
+}

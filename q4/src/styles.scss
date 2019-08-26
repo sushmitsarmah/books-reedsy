@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/bootstrap/scss/bootstrap';
+@import './variables';
+
+body {
+    font-size: 15px;
+    padding-top: 5em !important;
+    background-color: $section-background;
+}
+
+// @media screen and (max-width: 768px) {
+//     body { padding-top: 0px; }
+// }
