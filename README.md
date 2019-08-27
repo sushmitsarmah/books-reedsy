@@ -2,3 +2,5 @@
 2. build distribution. `cd q4-angular && npm run build`
 3. deploy code to firebase. `cd firebase && firebase deploy`
 4. add data to firestore db. visit /addBooks 
+
+## [Visit the Page](https://reedsy-q4-angular.firebaseapp.com/)
