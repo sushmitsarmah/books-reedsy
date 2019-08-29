@@ -12,8 +12,7 @@ export default new Router({
     routes: [
         {
             path: "/",
-            name: "home",
-            component: Home
+            redirect: '/books'
         },
         {
             path: "/books",
@@ -21,7 +20,7 @@ export default new Router({
             component: Books
         },
         {
-            path: "/books/:slug",
+            path: "/book/:slug",
             name: "book",
             component: Book
         },        
