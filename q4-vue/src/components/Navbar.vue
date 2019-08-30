@@ -1,21 +1,21 @@
 <template>
-  <div>
-    <b-navbar toggleable="lg" type="dark" variant="info">
-      <b-navbar-brand :to="links[0].url" v-text="title">
-      </b-navbar-brand>
+    <b-navbar toggleable="lg" type="dark" variant="info" sticky="true">
+        <b-container>
+            <b-navbar-brand :to="links[0].url" v-text="title">
+            </b-navbar-brand>
 
-      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+            <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
-      <b-collapse id="nav-collapse" is-nav>
-        <b-navbar-nav>
-            <template v-for="(link, i) of links">
-                <b-nav-item :key="i" :to="link.url" :active="link.active" @click="linkClicked(link)">{{link.title}}
-                </b-nav-item>
-            </template>
-        </b-navbar-nav>
-      </b-collapse>
+            <b-collapse id="nav-collapse" is-nav>
+                <b-navbar-nav>
+                    <template v-for="(link, i) of links">
+                        <b-nav-item :key="i" :to="link.url" :active="link.active" @click="linkClicked(link)">{{link.title}}
+                        </b-nav-item>
+                    </template>
+                </b-navbar-nav>
+            </b-collapse>
+        </b-container>
     </b-navbar>
-  </div>
 </template>
 
 <script>
@@ -41,3 +41,8 @@ export default {
     }
 };
 </script>
+<style lang="scss" scoped>
+.navbar {
+    margin-bottom: 1em;
+}
+</style>
